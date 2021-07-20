@@ -19,7 +19,7 @@ data_dir <- 'data_download'
 
 dataSources <- read_csv(file.path('meta', 'bulk_density_metadata - data_source_v2.csv')) %>%
   filter(!is.na(data_download_URL)) %>%
-  filter(data_source_ID %in% c('Howard2020', 'Kusumaningtyas2018a')) %>%
+  filter(data_source_ID %in% c('Howard2020', 'Kusumaningtyas2018a', 'Ramahti2018')) %>%
   separate_rows(data_download_URL, data_filename, sep = ';') %>% ##TODO Ensure the same number of ; in both columns
   mutate(data_filename = trimws(data_filename),
          data_download_URL = trimws(data_download_URL)) %>%
