@@ -39,74 +39,19 @@ plyr::d_ply(dataSources, c('data_filename'), function(xx){
 
 ## Bulk density
 
-TODO
-  - write a formatting enforcer for this metadata
-
 ```{r}
-bulk_density.ls <- list(bulk_density = list(description = 'Bulk density - dry soil to volume ratio, specify inclusion of coarse fraction in data', 
-                                            type = 'numeric', min = 0, max = Inf),                        
-                        bulk_density_units = list(description= 'Bulk density unit [mass per volume]', 
-                                                  type = 'character'),
-                        bulk_density_includes_coarse_fraction = list(description = 'Flags inclusion of coarse fraction in bulk density value',
-                                                                     type = 'logical'),
-                        Coarse_fraction = list(description = 'Coarse fraction', 
-                                               type = 'numeric', min = 0, max = 1),
-                        Coarse_fraction_unit = list(description = 'Coarse fraction unit', 
-                                                    type = 'factor', 
-                                                    factors = list(mass_ratio = 'ratio of coarse fraction mass to whole soil mass [common]', 
-                                                                   volume_ratio = 'ratio of coarse fraction volume to whole soil volume [rare]')),
-                        Coarse_fraction_method = list(description = 'Coarse fraction separation methods', 
-                                                      type = 'factor', 
-                                                      factors = list(sieve_2mm = ' >2mm sieve size [common]', 
-                                                                     hand_picked = 'hand picked large partices (ex roots, and rocks), generally peats [rare]')),
-                        Bulk_density_volume_method = list(description = 'Bulk density volume method', 
-                                                          type = 'factor',
-                                                          factors = list(geometric_volume = 'Volume by extracted slice or core geometry.',
-                                                                         compliant_cavity = 'Fill hole with material of known density',
-                                                                         clod = 'Volume by displacement of soil mass.',
-                                                                         auger_cores = 'Internal core volume of an auger core',
-                                                                         imaged_volume = '3D scan for volume of soil clod')
-                        ))
-```
-
-```{r eval=FALSE}
 ##Save things in yaml when needed
-write_yaml(bulk_density.ls, file = 'data_model/bulk_density.yml')
-cat(sprintf('%s\n', readLines('data_model/bulk_density.yml')))
+source('R/make_bulk_density.R')
+#write_yaml(make_bulk_density(), file = 'data_model/bulk_density.yml')
+cat(as.yaml(make_bulk_density()))
 ```
 
 ## Data source
 
 ```{r}
-data_source.ls <- list(data_source_ID = list(desciption = 'Internal study identifier; convention [FirstAuthorLastName-GroupName][Year][abc] ex Yamshito2015a',
-                                             type = 'character'), #TODO formatting check here?
-                       data_source_title = list(desciption = 'Long title of data source',
-                                                type = 'character'),
-                       data_access = list(description = 'how the data was accessed',
-                                          type = 'factor',
-                                          factor = list(data_package = 'download as a data package zip file including metadata and data tables, could include paper as well',
-                                                        data_table_files = 'download as individual data tables with one header row regular structure. Possible meta information in header defined as /* */ from pangaea',
-                                                        data_rescue = 'manual or scripted extraction needed from a scanned document or non-regular table'
-                                          )),
-                       data_download_URL = list(description = 'list of for data download, as ; seperated list',
-                                                type = 'character'), #TODO formatting check here?
-                       data_filename = list(description = 'list of data file names that match the data downloads',
-                                                type = 'character'),
-                       data_citation = list(description = 'suggested data citation',
-                                            type = 'character'),
-                       data_DOI = list(description = 'DOI for associated data object',
-                                       type = 'character'), #TODO formatting check
-                       data_published_year = list(description = 'Year data was published [Common Era]',
-                                                  type = 'numeric'),
-                       abstract = list(description = 'Abstract for data citation',
-                                       type = 'character'),
-                       notes = list(description = 'Free notes field: why this data source was selected,list of data variables, keywords, and associated publications',
-                                    type = 'character'))
-```
-
-```{r eval=FALSE}
 ##Save things in yaml when needed
-write_yaml(data_source.ls, file = 'data_model/data_source.yml')
-cat(sprintf('%s\n', readLines('data_model/data_source.yml')))
+source('R/make_data_source.R')
+#write_yaml(make_data_source(), file = 'data_model/data_source.yml')
+cat(as.yaml(make_data_source()))
 ```
 
