@@ -2,6 +2,7 @@
 #' 
 #' A soil bulk density value generally uses the methods specified in the list structure defined here.
 #' Note that coarse fraction is generally needed to interpret the bulk density measurement and also defined here.
+#' All masses are assumed to reflect dry weight, either measured or inferred.
 #'
 #' @return a list describing the information needed to utilize a bulk density measurement
 #' @export
