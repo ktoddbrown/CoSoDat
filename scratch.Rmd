@@ -14,7 +14,7 @@ library(yaml)
 
 # Translation data model
 
-```{r}
+```{r, eval=FALSE}
 data_dir <- 'data_download'
 
 dataSources <- read_csv(file.path('meta', 'bulk_density_metadata - data_source_v2.csv')) %>%
@@ -56,7 +56,18 @@ bd.df <- as.data.frame(bd.ls) %>%
   mutate(control_vocabulary = if_else(grepl('control_vocabulary', label),
                                       gsub('^.*control_vocabulary.', '', label), NA_character_)) %>%
   mutate(label = gsub('\\.?control_vocabulary.*', '', label)) %>%
-  select(variable, class, label, control_vocabulary)
+  select(variable, class, label, control_vocabulary, value)
+
+knitr::kable(bd.df)
+```
+
+## Organic carbon fraction
+
+```{r}
+##Save things in yaml when needed
+source('R/make_organic_carbon_fraction.R')
+#write_yaml(make_bulk_density(), file = 'data_model/bulk_density.yml')
+cat(as.yaml(make_organic_carbon_fraction()))
 ```
 
 ## Data source
