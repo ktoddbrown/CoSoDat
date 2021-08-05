@@ -46,6 +46,19 @@ source('R/make_bulk_density.R')
 cat(as.yaml(make_bulk_density()))
 ```
 
+```{r}
+bd.ls <- make_bulk_density()
+
+bd.df <- as.data.frame(bd.ls) %>%
+  mutate(across(everything(), as.character)) %>%
+  pivot_longer(cols = everything()) %>%
+  separate(col = 'name', into = c('variable', 'class', 'label'), sep = '\\.', extra = 'merge', fill = 'right') %>%
+  mutate(control_vocabulary = if_else(grepl('control_vocabulary', label),
+                                      gsub('^.*control_vocabulary.', '', label), NA_character_)) %>%
+  mutate(label = gsub('\\.?control_vocabulary.*', '', label)) %>%
+  select(variable, class, label, control_vocabulary)
+```
+
 ## Data source
 
 ```{r}
