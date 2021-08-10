@@ -19,13 +19,13 @@ make_organic_carbon_fraction <- function(){
         control_vocabulary = list(
           mass_per_mass = 'ratio of organic carbon mass to dry fine soil mass', 
           mass_percent = 'percent of dry fine soil that is organic carbon')),
-      method = list(WalkleyBlack = "Walkley-Black titration method",
+      method = list(Walkley_Black = "Walkley-Black titration method",
+                    elemental_analysis = 'Dry combustion using elemental analyser with inorganic carbon removed or considered insigificant.',
                     pedotransfer_loi = list(
                       parameter = list(
                         conversion_factor = list(
                           description = 'conversion factor between loss on ignition and organic carbon fraction',
-                          range = list(min=0, max=1))
-                      ),
+                          range = list(min=0, max=1))),
                       input = list(loss_on_ignition = make_loss_on_ignition()),
                       r_function = 'loss_on_ignition * parameter$conversion_factor'
                     )
