@@ -42,7 +42,7 @@ make_geolocation <- function(){
     depth = list(top = list(value = 'depth to top layer, common'),
                  center = list(value = 'depth to center of layer, [discouraged, top/bottom would need to be calculated from sequencial centers]'),
                  thickness = list(value = 'thickness of the layer, [discouraged, redundent if top/bottom recorded]')
-                 bottom  = list(value = 'depth to bottom layer, common'),
+                 bottom  = list(value = 'depth to bottom layer, common'), #TODO is there someway to check top < center < bottom?
                  zero_reference = list(value = 'where is 0 in the soil column, down is positive',
                                        control_vocabulary = list(soil_surface = '0 refered to as soil surface, down is positive',
                                                                  mineral_organic = '0 refers to mineral-organic interface, down is positive')),
