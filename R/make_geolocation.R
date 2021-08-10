@@ -21,7 +21,7 @@ make_geolocation <- function(){
                    deg_min_sec = 'degree minute seconds')),
     datum = 'text', #TODO figure out standard to cite here
     horizontal_precision = list(
-      value = 'Horizontal precision applied to lattitude and longitude [rare but desired]'
+      value = 'Horizontal precision applied to lattitude and longitude [rare but desired]',
       control_vocabulary = list(
         centimeter = 'centimeter level precision, common on survey-quality location points',
         meter = 'meter level precision, common on post-sampling map referencing',
@@ -44,7 +44,7 @@ make_geolocation <- function(){
                 timezone = 'N hours before or after UTC'),
     depth = list(top = list(value = 'depth to top layer, common'),
                  center = list(value = 'depth to center of layer, [discouraged, top/bottom would need to be calculated from sequencial centers]'),
-                 thickness = list(value = 'thickness of the layer, [discouraged, redundent if top/bottom recorded]')
+                 thickness = list(value = 'thickness of the layer, [discouraged, redundent if top/bottom recorded]'),
                  bottom  = list(value = 'depth to bottom layer, common'), #TODO is there someway to check top < center < bottom?
                  zero_reference = list(value = 'where is 0 in the soil column, down is positive',
                                        control_vocabulary = list(soil_surface = '0 refered to as soil surface, down is positive',
