@@ -11,7 +11,8 @@ Currently vocabularies are represented as a R list and designed to describe soil
 
 ## Data point tuple
 Terms are generally associated with a value-unit-method tupple that identify the expected range of the term across all possible units, common units, and a method description of _common methodologies_ that might _drive different interpretation_ of the data points.
-Most methods are keyed lists with exclusive definitions grouped under the same category.
+Most methods are keyed lists with exclusive definitions grouped under the same category (`control_vocabulary`).
+Ranges are provided when numerical values can be constraind (generally as 0-Inf or 0-1)
 Bulk density below is given as an example.
 
 ```
@@ -80,18 +81,20 @@ These data sources were used to check the bulk density description design and wi
 
 # Under development
 
-Organic carbon fraction, loss on ignition, and geolocation should be considered under development at this point.
+The data models below are actively under development.
+They have been drafted and are waiting for feedback.
+
+  1) organic carbon fraction - 2021 Aug 10
+  2) soil sample location - 2021 Aug 10
+      - georeference (lat, long, datum, precision)
+      - collection time (year, month, day, hour, minute, timezone)
+      - layer depth (top, bottom, zero-reference)
 
 # Future plan
 
 We need to develop integration with a data harmonization workflow.
 
 Future vocabularies:
-  1) organic carbon fraction - 2021 Aug 10 under development
-  2) soil sample location - 2021 Aug 10 under development
-      - georeference (lat, long, datum, precision)
-      - collection time (year, month, day, hour, minute, timezone)
-      - layer depth (top, bottom, zero-reference)
   3) physiochemical fractionation
   4) sampling strategy and design
   5) CO2/CH2 flux
