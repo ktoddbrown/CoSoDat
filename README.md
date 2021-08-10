@@ -80,7 +80,7 @@ These data sources were used to check the bulk density description design and wi
 
 # Under development
 
-Organic carbon fraction and loss on ignition should be considered under development at this point.
+Organic carbon fraction, loss on ignition, and geolocation should be considered under development at this point.
 
 # Future plan
 
@@ -88,23 +88,23 @@ We need to develop integration with a data harmonization workflow.
 
 Future vocabularies:
   1) organic carbon fraction - 2021 Aug 10 under development
-  2) soil sample location
+  2) soil sample location - 2021 Aug 10 under development
       - georeference (lat, long, datum, precision)
       - collection time (year, month, day, hour, minute, timezone)
       - layer depth (top, bottom, zero-reference)
-      - physiochemical fractionation
-  3) sampling strategy and design
-  4) CO2/CH2 flux
-  5) nitrogen
-  6) phosphorus
-  7) case/control treatment
+  3) physiochemical fractionation
+  4) sampling strategy and design
+  5) CO2/CH2 flux
+  6) nitrogen
+  7) phosphorus
+  8) case/control treatment
       - lab incubation (temperature & moisture)
       - field warming experiment
       - rainout experiment
-  8) microbial biomass
+  9) microbial biomass
       - fumigation
       - substrate enrichment
-  9) isotope quantification
+  10) isotope quantification
 
 After we have tested the vocabularies across several data sets, we plan to spin off a soil ontology January 2022.
 
