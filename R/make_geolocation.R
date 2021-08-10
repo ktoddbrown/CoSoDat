@@ -11,14 +11,17 @@
 make_geolocation <- function(){
   
   geolocation <- list(geolocation = list(
-    latitude = list(value = 'latitude',
-                    units = list(dec_deg = 'decimal degrees', 
-                                 deg_min_sec = 'degree minute seconds')),
-    longitude = list(value = 'latitude',
-                     units = list(dec_deg = 'decimal degrees', 
-                                  deg_min_sec = 'degree minute seconds')),
+    latitude = list(
+      value = 'latitude',
+      units = list(dec_deg = 'decimal degrees', 
+                   deg_min_sec = 'degree minute seconds')),
+    longitude = list(
+      value = 'latitude',
+      units = list(dec_deg = 'decimal degrees', 
+                   deg_min_sec = 'degree minute seconds')),
     datum = 'text', #TODO figure out standard to cite here
     horizontal_precision = list(
+      value = 'Horizontal precision applied to lattitude and longitude [rare but desired]'
       control_vocabulary = list(
         centimeter = 'centimeter level precision, common on survey-quality location points',
         meter = 'meter level precision, common on post-sampling map referencing',
@@ -26,7 +29,7 @@ make_geolocation <- function(){
         megameter = '1 000 km level precision, width of Texas and half the width of the USA',
         gigameter = '1 000 000 km level precision, somewhere on Earth (circumference 40 075 km)')),
     horizontal_masking = list(
-      value = 'Where corrections applied to the recorded latitude longitude to mask the location? Often done to address data privacy concerns',
+      value = 'Corrections applied to the recorded latitude longitude to mask the location, Often done to address data privacy concerns',
       control_vocabulary = list(
         none = 'no masking was applied to locations',
         shuffle = 'some proportion of the locations were randomly reassigned to preserve privacy, precision reflects bounded area of all samples in pool',
