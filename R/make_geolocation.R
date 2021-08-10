@@ -13,11 +13,11 @@ make_geolocation <- function(){
   geolocation <- list(geolocation = list(
     latitude = list(
       value = 'latitude',
-      units = list(dec_deg = 'decimal degrees', 
+      units = list(dec_deg = 'decimal degrees [prefered]', 
                    deg_min_sec = 'degree minute seconds')),
     longitude = list(
-      value = 'latitude',
-      units = list(dec_deg = 'decimal degrees', 
+      value = 'longitude',
+      units = list(dec_deg = 'decimal degrees [prefered]', 
                    deg_min_sec = 'degree minute seconds')),
     datum = 'text', #TODO figure out standard to cite here
     horizontal_precision = list(
