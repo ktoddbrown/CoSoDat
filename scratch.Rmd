@@ -61,21 +61,12 @@ bd.df <- as.data.frame(bd.ls) %>%
 knitr::kable(bd.df)
 ```
 
-## Organic carbon fraction
+## all data models
 
 ```{r}
-##Save things in yaml when needed
-source('R/make_organic_carbon_fraction.R')
-#write_yaml(make_bulk_density(), file = 'data_model/bulk_density.yml')
-cat(as.yaml(make_organic_carbon_fraction()))
+all_datamodels <- lapply(list.files('R', full.names = TRUE), source)
+
+all_yaml <- lapply(all_datamodels, function(xx){as.yaml(xx$value())})
+
+lapply(all_yaml, function(xx){cat(paste(xx, '========\n'))})
 ```
-
-## Data source
-
-```{r}
-##Save things in yaml when needed
-source('R/make_data_source.R')
-#write_yaml(make_data_source(), file = 'data_model/data_source.yml')
-cat(as.yaml(make_data_source()))
-```
-

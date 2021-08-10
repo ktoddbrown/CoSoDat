@@ -73,19 +73,23 @@ organic_carbon_fraction:
 
 # Current status
 
-We currently have vocabulary designed to describe soil data sources and bulk density with coarse fraction.
+We currently have vocabulary designed to describe soil data sources, bulk density, and coarse fraction.
 
 Data sources are identified in `data/data_sources.tsv` with prioritization given (but not exclusive) to data reporting soil bulk density located in the global south.
 These data sources were used to check the bulk density description design and will be used to prototype a data integration and annotation workflow in the future.
+
+# Under development
+
+Organic carbon fraction and loss on ignition should be considered under development at this point.
 
 # Future plan
 
 We need to develop integration with a data harmonization workflow.
 
 Future vocabularies:
-  1) organic carbon fraction
+  1) organic carbon fraction - 2021 Aug 10 under development
   2) soil sample location
-      - georeference (lat, long, datum)
+      - georeference (lat, long, datum, precision)
       - collection time (year, month, day, hour, minute, timezone)
       - layer depth (top, bottom, zero-reference)
       - physiochemical fractionation
