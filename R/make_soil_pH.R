@@ -26,7 +26,12 @@ make_soil_pH <- function(){
                                     '1:5' = '1 to 5 soil to solute',
                                     '1:10' = '1 to 10 soil to solute'),
                   instrument = list(litmus = 'litmus paper',
-                                    meter = 'pH meter')
+                                    meter = 'pH meter'),
+                  pedotransfer_pH = list(description = 'convert between one pH measurement and a second',
+                    parameter = list(),#empty
+                    input = list(soil_pH), #empty to avoid infinite loop
+                    r_function = '#empty'
+                  )
     )
   ))
 }
