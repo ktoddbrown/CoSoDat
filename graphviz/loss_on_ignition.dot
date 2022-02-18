@@ -1,0 +1,9 @@
+digraph loss_on_ignition {
+  node [shape = box]
+  loi [label = 'Loss on ignition']; method; unit
+  
+  loi -> combustion [label = 'hasMethod'] 
+  loi -> unit [label = 'hasA']
+  
+  
+}
