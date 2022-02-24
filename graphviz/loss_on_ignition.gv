@@ -1,0 +1,14 @@
+digraph loss_on_ignition {
+  node [shape = box]
+  loi [label = 'Loss on ignition']
+  loi_method [label = 'relative loss on combustion'] 
+  loi_unit [label = 'mass-change per mass-orginal']
+  loi_specificUnit01 [label = 'unitless (common)', shape = 'oval']
+  loi_specificUnit02 [label = 'percent (common)', shape = 'oval']
+  
+  loi -> loi_method [label = 'hasMethod'] 
+  loi -> loi_unit [label = 'hasUnitOf']
+  loi_unit -> {loi_specificUnit01 loi_specificUnit02} [label = 'oneOf']
+  
+}
+

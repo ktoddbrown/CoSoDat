@@ -1,0 +1,16 @@
+digraph organic_carbon_fraction {
+  node [shape = box]
+  
+  oc [label = 'Organic carbon fraction']
+
+  oc_method01 [label = 'fraction of loss on ignition (common)']
+  subgraph {
+    @@1
+  }
+  
+  oc -> {oc_method01} [label = 'oneOf']
+  oc_method01 -> loi [label = 'funcitonOf']
+}
+
+//This is a hack to include the subgraph from a different file
+[1]: gsub('^digraph', 'subgraph', paste0(readLines('graphviz/loss_on_ignition.gv'), collapse = '\n'))
