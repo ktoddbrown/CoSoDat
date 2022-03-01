@@ -1,15 +1,51 @@
 digraph organic_carbon_fraction {
+  graph [layout = dot, rankdir = TB]
   node [shape = box]
   
   oc [label = 'Organic carbon fraction']
-
-  oc_method01 [label = 'fraction of loss on ignition (common)']
-  subgraph {
+  
+  //Definition
+  oc_definition [label = 'mass ratio between organic carbon and total dry fine soil']
+  oc -> oc_definition [label = 'hasDefinition']
+  
+  //Unit
+  oc_unit [label = 'mass-organicCarbon per mass-soil']
+  oc -> oc_unit [label = 'hasUnit']
+  
+  oc_thatAre01 [shape=circle, label = 'choice']
+  oc_unit -> oc_thatAre01 [label = 'oneOf']
+  
+  oc_specificUnit01 [label = 'unitless fraction (common)', shape = 'oval']
+  oc_specificUnit02 [label = 'percent (common)', shape = 'oval']
+  oc_thatAre01 -> {oc_specificUnit01, oc_specificUnit02} [label = 'oneOf']
+  
+  //Method
+  oc_thatAre02 [shape=circle, label = 'choice']
+  oc -> oc_thatAre02 [label = 'hasMethod']
+  
+  oc_method_loi [label = 'OC from calculated from loss on ignition (common)']
+  oc_method_WalkleyBlack [label = 'Walkley-Black titration method']
+  oc_method_elementalAnalyiser [label = 'Dry combustion using elemental analyser with inorganic carbon removed or considered insigificant.']
+  
+  oc_thatAre02 -> {oc_method_loi, oc_method_WalkleyBlack, oc_method_elementalAnalyiser} [label = 'oneOf']
+  
+  oc_method_loi_function [label = ' ~ Input * ConversionCactor']
+  subgraph loi_cluster {
+    graph [color = 'black']
     @@1
   }
+  oc_method_loi -> oc_method_loi_function [label = 'hasFunction']
+  oc_method_loi_function -> loi [label = 'hasInput']
   
-  oc -> {oc_method01} [label = 'oneOf']
-  oc_method01 -> loi [label = 'funcitonOf']
+ 
+  oc_thatAre03 [label = 'choice', shape = circle]
+  oc_method_loi_function -> oc_thatAre03 [label = 'hasConversionFactor']
+  
+  oc_method_loi_parameter01 [label = 'conversion_factor: 0.5 (modern)']
+  oc_method_loi_parameter02 [label = 'conversion_factor: 0.57 (traditional)']
+  
+  oc_thatAre03 -> {oc_method_loi_parameter01, oc_method_loi_parameter02} [label = 'oneOf']
+  
 }
 
 //This is a hack to include the subgraph from a different file
