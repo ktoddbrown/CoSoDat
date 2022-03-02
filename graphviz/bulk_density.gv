@@ -1,0 +1,44 @@
+digraph bulk_density {
+  node [shape = box]
+  bd [label = 'Bulk density']
+  
+  //Definition
+  bd_definition [label = 'dry soil to volume ratio']
+  bd -> bd_definition [label = 'hasDefinition']
+  
+  //Unit
+  bd_unit [label = 'mass-soil per volume-soil']
+  bd -> bd_unit [label = 'hasUnit']
+  
+  bd_thatAre01 [shape=circle, label = 'choice']
+  bd_unit -> bd_thatAre01 [label = 'oneOf']
+  
+  bd_specificUnit01 [label = 'g cm-3 (common)', shape = 'oval']
+  bd_specificUnit02 [label = 'kg m-3 (uncommon - used in mapping)', shape = 'oval']
+  bd_thatAre01 -> {bd_specificUnit01, bd_specificUnit02} [label = 'oneOf']
+  
+  //Method
+  bd_thatAre02 [shape=diamond, label = 'composedOf']
+  bd -> bd_thatAre02 [label = 'hasMethod']
+  
+  bd_method_volume [label = 'sample volume']
+  bd_thatAre03 [shape = circle, label = 'choice']
+  bd_method_volume -> bd_thatAre03 [label = 'hasMethod']
+  
+  bd_method_volume_geometric [label = 'Volume by extracted slice or core geometry']
+  bd_method_volume_compliantCavity [label = 'Fill hole with material of known density']
+  bd_method_volume_clod [label = 'Volume by displacement of soil mass.']
+  bd_method_volume_augerCores [label = 'Internal core volume of an auger core']
+  bd_method_volume_imagedVolume [label = '3D scan for volume of soil clod']
+  bd_thatAre03 -> {bd_method_volume_imagedVolume; bd_method_volume_augerCores; bd_method_volume_clod; bd_method_volume_geometric; bd_method_volume_compliantCavity} [label = 'oneOf']
+  
+  bd_method_mass [label = 'sample mass']
+  bd_thatAre04 [shape = circle, label = 'choice']
+  bd_method_mass -> bd_thatAre04 [label = 'hasMethod']
+  
+  bd_method_mass_inclusive [label = 'inclusive of coarse fraction']
+  bd_method_mass_exclusive [label = 'exclusive of coarse fraction']
+  bd_thatAre04 -> {bd_method_mass_exclusive; bd_method_mass_inclusive} [label = 'oneOf']
+  
+  bd_thatAre02 -> {bd_method_mass; bd_method_volume} [label = 'bothOf']
+}

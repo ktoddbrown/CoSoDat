@@ -2,17 +2,35 @@
 title: "Main Scratch"
 author: "K Todd-Brown (ktoddbrown@ufl.edu)"
 date: "7/20/2021"
-output: html_document
+output:
+  github_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(yaml)
+library(DiagrammeR)
 ```
 
+# Organic carbon fraction
 
+```{r}
+DiagrammeR::grViz("graphviz/organic_carbon_fraction.gv")
+```
+
+# Bulk density
+
+```{r}
+DiagrammeR::grViz("graphviz/bulk_density.gv")
+```
 
 # Translation data model
+
+```{r}
+knitr::opts_chunk$set(eval = FALSE)
+
+```
 
 ```{r, eval=FALSE}
 data_dir <- 'data_download'
