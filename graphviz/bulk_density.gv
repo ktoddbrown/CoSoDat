@@ -41,4 +41,5 @@ digraph bulk_density {
   bd_thatAre04 -> {bd_method_mass_exclusive; bd_method_mass_inclusive} [label = 'oneOf']
   
   bd_thatAre02 -> {bd_method_mass; bd_method_volume} [label = 'bothOf']
+  
 }
