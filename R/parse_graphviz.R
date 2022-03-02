@@ -23,8 +23,8 @@ data.frame(lines = stringr::str_trim(unlist(strsplit(temp3, split = '\n')))) %>%
   tidyr::separate(col = edges, into = c('from', 'to'), sep = '->') %>%
   tidyr::separate_rows(attributes, sep = ',') %>%
   mutate(to = gsub('\\}', '', gsub('\\{', '', to))) %>%
-  separate_rows(to, sep = '[\\s;,]+') %>%
   mutate(across(everything(), stringr::str_trim)) %>%
+  separate_rows(to, sep = '[\\s;,]+') %>%
   separate(col = attributes, into = c('type', 'value'), sep = ' ?= ?') %>% 
   pivot_wider(names_from = 'type', values_from = 'value') %>%view
   
