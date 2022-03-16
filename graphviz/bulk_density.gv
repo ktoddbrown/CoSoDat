@@ -13,8 +13,8 @@ digraph bulk_density {
   bd_thatAre01 [shape=circle, label = 'choice']
   bd_unit -> bd_thatAre01 [label = 'oneOf']
   
-  bd_specificUnit01 [label = 'g cm-3 (common)', shape = 'oval']
-  bd_specificUnit02 [label = 'kg m-3 (uncommon - used in mapping)', shape = 'oval']
+  bd_specificUnit01 [label = 'g cm-3 (common)']
+  bd_specificUnit02 [label = 'kg m-3 (uncommon - used in mapping)']
   bd_thatAre01 -> {bd_specificUnit01, bd_specificUnit02} [label = 'oneOf']
   
   //Method
